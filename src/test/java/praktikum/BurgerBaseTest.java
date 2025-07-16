@@ -13,9 +13,9 @@ public abstract class BurgerBaseTest {
     private AutoCloseable mockCloseable;
 
     @Mock protected Bun mockBun;
-    @Mock protected Ingredient mockIngredient1;
-    @Mock protected Ingredient mockIngredient2;
-    @Mock protected Ingredient mockIngredient3;
+    @Mock protected Ingredient mockSourCream;
+    @Mock protected Ingredient mockChiliSauce;
+    @Mock protected Ingredient mockCutlet;
 
     @Before
     public void startUp() {
@@ -24,12 +24,12 @@ public abstract class BurgerBaseTest {
         burger = new Burger();
 
         when(mockBun.getName()).thenReturn("white bun");
-        when(mockIngredient1.getName()).thenReturn("sour cream");
-        when(mockIngredient1.getType()).thenReturn(IngredientType.SAUCE);
-        when(mockIngredient2.getName()).thenReturn("chili sauce");
-        when(mockIngredient2.getType()).thenReturn(IngredientType.SAUCE);
-        when(mockIngredient3.getName()).thenReturn("cutlet");
-        when(mockIngredient3.getType()).thenReturn(IngredientType.FILLING);
+        when(mockSourCream.getName()).thenReturn("sour cream");
+        when(mockSourCream.getType()).thenReturn(IngredientType.SAUCE);
+        when(mockChiliSauce.getName()).thenReturn("chili sauce");
+        when(mockChiliSauce.getType()).thenReturn(IngredientType.SAUCE);
+        when(mockCutlet.getName()).thenReturn("cutlet");
+        when(mockCutlet.getType()).thenReturn(IngredientType.FILLING);
     }
 
     protected static Ingredient createMockIngredient(float price) {

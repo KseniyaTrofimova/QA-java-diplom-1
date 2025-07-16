@@ -4,16 +4,17 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BurgerIngredientsTest extends BurgerBaseTest {
+
     @Test
     public void testAddIngredient() {
-        burger.addIngredient(mockIngredient1);
+        burger.addIngredient(mockSourCream);
         assertEquals(1, burger.ingredients.size());
     }
 
     @Test
     public void testRemoveIngredient() {
-        burger.addIngredient(mockIngredient1);
-        burger.addIngredient(mockIngredient2);
+        burger.addIngredient(mockSourCream);
+        burger.addIngredient(mockChiliSauce);
         burger.removeIngredient(0);
         assertEquals(1, burger.ingredients.size());
     }
@@ -25,12 +26,19 @@ public class BurgerIngredientsTest extends BurgerBaseTest {
     }
 
     @Test
-    public void testMoveIngredient() {
-        burger.addIngredient(mockIngredient1);
-        burger.addIngredient(mockIngredient2);
+    public void testMoveIngredientFirstToSecondPosition() {
+        burger.addIngredient(mockSourCream);
+        burger.addIngredient(mockChiliSauce);
         burger.moveIngredient(0, 1);
-        assertEquals(mockIngredient1, burger.ingredients.get(1));
-        assertEquals(mockIngredient2, burger.ingredients.get(0));
+        assertEquals(mockSourCream, burger.ingredients.get(1));
+    }
+
+    @Test
+    public void testMoveIngredientSecondToFirstPosition() {
+        burger.addIngredient(mockSourCream);
+        burger.addIngredient(mockChiliSauce);
+        burger.moveIngredient(0, 1);
+        assertEquals(mockChiliSauce, burger.ingredients.get(0));
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
